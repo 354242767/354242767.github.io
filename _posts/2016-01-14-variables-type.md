@@ -178,11 +178,20 @@ console.log(
 
 我们这里先来对比一下上面所有方法检测出的结果，横排是使用的检测方法， 竖排是各个变量：
 
-typeof | instanceof | constructor | toString.call | $.type
-- | - | - | - | - 
-typeof | instanceof | constructor | toString.call | $.type
-typeof | instanceof | constructor | toString.call | $.type
-typeof | instanceof | constructor | toString.call | $.type
+    type   | typeof | instanceof | constructor | toString.call | $.type
+    num    | number    | false | true | [object Number]    | number
+    str    | string    | false | true | [object String]    | string
+    bool   | boolean   | false | true | [object Boolean]   | boolean
+    und    | undefined | false | -    | [object Undefined] | undefined
+    nul    | object    | false | -    | [object Null]      | null
+    arr    | object    | true  | true | [object Array]     | array
+    json   | object    | true  | true | [object Object]    | object
+    fn     | function  | true  | true | [object Function]  | function
+    date   | object    | true  | true | [object Date]      | date
+    reg    | object    | true  | true | [object Regexp]    | regexp
+    error  | object    | true  | true | [object Error]     | error
+    优点 |使用简单，能直接输出结果|能检测出复杂的类型|基本能检测出所有的类型|检测出所有的类型| -
+    缺点 |检测出的类型太少|基本类型检测不出，且不能跨iframe|不能跨iframe，且constructor易被修改|IE6下undefined,null均为Object| -
 
 
 这样对比一下，就更能看到各个方法之间的区别了，而且Object.prototype.toString.call和$type输出的结果真的很像。我们来看看jquery（2.1.2版本）内部是怎么实现$.type方法的：
