@@ -1,6 +1,6 @@
 ---
-title: Categories
-date: 2013-12-24 23:30:09
+title: 如何确定一个变量的类型
+date: 2016-01-14 23:30:09
 categories:
 - Foo
 - Bar
