@@ -11,9 +11,12 @@
 #    |  |  \   --. /  .'.  \  |  |
 #    `--'   `----''--'   '--' `--'
 
+# config file for development, DELETE IT IF YOU WANT.
+
 text_color_theme: default #eg: default | dark | forest | ocean | chocolate | orange
 ## Base settings ##
 # url:  #the base hostname & protocol for your site e.g. https://www.someone.com
+
 baseurl: /
 title: Someone's blog
 description: > #this means to ignore newlines until "nav_lists:"
@@ -26,36 +29,38 @@ nav_lists:
       zh-Hans: 关于
       zh-Hant: 關於
     url: /about.html
+  - title: Baidu
+    url: https://www.baidu.com
 
-# paths:
-#   base: /
-#   home: /
-#   all:  /all.html
-#   rss:  /feed.xml
+paths:
+  # base: /
+  # home: /
+  # all:  /all.html
+  # rss:  /feed.xml
 
 ## GitHub repository (if the site is hosted by GitHub) ##
-# repository:  #e.g. someone/someone.github.io
-# repository_tree:  #e.g. master
+repository: someone/someone.github.io
+repository_tree: master
 
 ## Language & timezone ##
-lang: en #the language of your site, eg: en(English), zh(简体中文), zh-Hans(简体中文), zh-Hant(繁體中文)
+# lang: en #the language of your site, eg: en(English), zh(简体中文), zh-Hans(简体中文), zh-Hant(繁體中文)
 timezone: Asia/Shanghai #see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 ## Author & social ##
 author:
   name: Someone
-  # email:  #your Email address e.g. someone@site.com
-  # facebook:  #your Facebook username
-  # twitter:  #your Twitter username
-  # github:  #your GitHub username
-  # googleplus:  #your Google+ username
-  # weibo:  #your Weibo username
-  # douban:  #your Douban username
-  # linkedin:  #your Linkedin username
+  email: someone@somemail.com  #your Email address e.g. someone@site.com
+  facebook: someone  #your Facebook username
+  twitter: someone  #your Twitter username
+  github: someone  #your GitHub username
+  googleplus:   #your Google+ username
+  weibo:   #your Weibo username
+  douban:   #your Douban username
+  linkedin:   #your Linkedin username
 
 ## TOC
 toc:
-  # selectors: 'h1,h2,h3'
+  # selectors: 'h1,h2,h3,h4,h5,h6'
 
 ## Comment system (Disqus) ##
 disqus:
@@ -64,12 +69,12 @@ disqus:
 ## Comment system (gitalk) ##
 # please refer to https://github.com/gitalk/gitalk for more info.
 gitalk:
-  # clientID:  #Github Application Client ID
-  # clientSecret:  #Github Application Client Secret
-  # repository:  #Github repo
-  # owner:  #Github repo owner
-  # admin: #Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
-    # - owner
+  clientID: 143666b578a416f82175 #Github Application Client ID
+  clientSecret: 1d1c0604a1a4bff9b59ab7f56724dc0e8b837775 #Github Application Client Secret
+  repository: gitalk-demo #Github repo
+  owner: kitian616 #Github repo owner
+  admin:  #Github repo owner and collaborators, only these guys can initialize github issues, IT IS A LIST.
+    - kitian616
 
 ## Google Analytics ##
 # ga_tracking_id:  #Google analytics id for the site
@@ -86,12 +91,12 @@ leancloud:
 # chart: true
 
 ## Paginate ##
-paginate: 7
+paginate: 3
 paginate_path: /blog/page:num
 
 ## Post excerpts ##
 excerpt_separator: <!--more-->
-excerpt_type: text # text | html
+excerpt_type: html # text | html
 
 ## Sources ##
 # sources: bootcss #eg: bootcss | unpkg
@@ -116,7 +121,7 @@ exclude:
   - /docs
   - /node_modules
   - /screenshots
-  - /test
+  # - /test
   - /vendor
 
 ## Plugins ##
