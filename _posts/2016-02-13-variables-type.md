@@ -1,9 +1,8 @@
 ---
-layout: post
 title: js中如何判断变量的类型
 key: 10002
 tags: javaScript
-category: blog
+category: bar
 date: 2016-02-13 21:30:00 +08:00
 ---
 
