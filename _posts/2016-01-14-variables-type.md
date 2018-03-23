@@ -179,6 +179,7 @@ console.log(
 我们这里先来对比一下上面所有方法检测出的结果，横排是使用的检测方法， 竖排是各个变量：
 
     type   | typeof | instanceof | constructor | toString.call | $.type
+    - | :-: | -:
     num    | number    | false | true | [object Number]    | number
     str    | string    | false | true | [object String]    | string
     bool   | boolean   | false | true | [object Boolean]   | boolean
