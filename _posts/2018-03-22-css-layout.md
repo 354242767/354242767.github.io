@@ -9,7 +9,7 @@ description: 前端布局非常重要的一环就是页面框架的搭建，也�
 ---
 
 
-# 正文
+
 ## 居中布局
 ### 水平居中
 #### 1）使用inline-block+text-align
