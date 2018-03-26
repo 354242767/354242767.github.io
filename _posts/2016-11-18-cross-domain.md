@@ -318,8 +318,8 @@ iframe.onload = function() {
 
 其它诸如中间件跨域，服务器代理跨域，Flash URLLoader跨域，动态创建script标签（简化版本的jsonp）不作讨论。
 
-# 参考文章
-[前端跨域知识总结]http://web.jobbole.com/88519/
+# 原文出处
+[前端跨域知识总结](http://web.jobbole.com/88519/)
 
 
 
