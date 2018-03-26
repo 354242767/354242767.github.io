@@ -842,14 +842,492 @@ CSS
 
 l = w * n + g * (n-1) -> l = w * n + g * n – g -> l + g = （w + g） * n
 
+![Caption](http://ww3.sinaimg.cn/mw690/81b78497jw1emfgwjrh2pj21hc0u01g3.jpg)
+
+** 因此，我们需要解决两个问题：**
+
+- 如何让总宽度增加g(即：L+g)
+- 如何让每个宽包含g（即：w+g）
+
+### 1）使用float
+**原理**
+
+- 增大父框的实际宽度后，使用CSS3属性box-sizing进行布局的辅助。
+
+**用法**
+
+- 先将父框设置为margin-left: -*px，再设置子框float: left、width: 25%、padding-left、box-sizing: border-box。
+
+**代码实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="column"><p>1</p></div>
+    <div class="column"><p>2</p></div>
+    <div class="column"><p>3</p></div>
+    <div class="column"><p>4</p></div>
+</div>
+
+CSS
+--------------------------------------
+.parent{
+    margin-left: -20px;//l增加g
+}
+.column{
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+    box-sizing: border-box;//包含padding区域 w+g
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点:兼容性较好
+- 缺点:ie6 ie7百分比兼容存在一定问题
+
+### 2）使用table
+**原理**
+
+- 通过增加一个父框的修正框，增大其宽度，并将父框转换为table，将子框转换为tabel-cell进行布局。
+
+**用法**
+
+- 先将父框的修正框设置为margin-left: -*px，再设置父框display: table、width:100%、table-layout: fixed，设置子框display: table-cell、padding-left。
+
+**代码实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent-fix">
+    <div class="parent">
+        <div class="column"><p>1</p></div>
+        <div class="column"><p>2</p></div>
+        <div class="column"><p>3</p></div>
+        <div class="column"><p>4</p></div>
+    </div>
+</div>
+
+CSS
+--------------------------------------
+.parent-fix{
+    margin-left: -20px;//l+g
+}
+.parent{
+    display: table;
+    width:100%;
+    table-layout: fixed;
+}
+.column{
+    display: table-cell;
+    padding-left: 20px;//w+g
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点:结构和块数无关联
+- 缺点:增加了一层
+
+### 3）使用flex
+**原理**
+
+- 通过设置CSS3布局利器flex中的flex属性以达到等分布局。
+
+**用法**
+
+- 将父框设置为display: flex，再设置子框flex: 1，最后设置子框与子框的间距margin-left。
+
+**代码实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="column"><p>1</p></div>
+    <div class="column"><p>2</p></div>
+    <div class="column"><p>3</p></div>
+    <div class="column"><p>4</p></div>
+</div>
+
+CSS
+--------------------------------------
+.parent{
+    display: flex;
+}
+.column{
+    flex: 1;
+}
+.column+.column{
+    margin-left:20px;
+}
 
 
+{% endhighlight %}
+
+**优缺点**
+
+- 优点:代码量少，与块数无关
+- 缺点:兼容性存在一定问题
+
+## 定宽+自适应+两块高度一样高
+### 1）使用float
+**原理**
+
+- 通过过分加大左右子框的高度，辅助超出隐藏，以达到视觉上的等高。
+
+**用法**
+
+- 将父框设置overflow: hidden，再设置左右子框padding-bottom: 9999px、margin-bottom: -9999px，最后设置左框float: left、width、margin-right，右框overflow: hidden。
+
+**代码实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="left">
+        <p>left</p>
+    </div>
+    <div class="right">
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
 
 
+CSS
+--------------------------------------
+p{
+    background: none!important;
+}
+.left,.right{
+    background: #444;
+}
+.parent{
+    overflow: hidden;
+}
+.left,.right{
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+}
+.left{
+    float: left; 
+    width: 100px;
+    margin-right: 20px;
+}
+.right{
+    overflow: hidden;
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点:兼容性好
+- 缺点:伪等高，不是真正意义上的等高
+
+### 2）使用table
+**原理**
+
+- 将父框转化为tabel，将子框转化为tabel-cell布局，以达到定宽+自适应+两块高度一样高。
+
+**用法**
+
+- 先将父框设置为display:table、width:100%、table-layout:fixed，再设置左右框为display:table-cell，最后设置左框width、padding-right。
+
+**代码实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="left">
+        <p>left</p>
+    </div>
+    <div class="right">
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
 
 
+CSS
+--------------------------------------
+.parent {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.left {
+    width:100px;
+    padding-right:20px;
+}
+.right,.left {
+    display:table-cell;
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点:-
+- 缺点:-
+
+### 3）使用flex
+**原理**
+
+- 通过设置CSS3布局利器flex中的flex属性以达到定宽+自适应+两块高度一样高。
+
+**用法**
+
+- 将父框设置为display: flex，再设置左框width、margin-right，最后设置右框flex:1。
+
+**代码实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="left">
+        <p>left</p>
+    </div>
+    <div class="right">
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
 
 
+CSS
+--------------------------------------
+.parent {
+    display:flex;
+}
+.left {
+    width:100px;
+    margin-right:20px;
+}
+.right {
+    flex:1;
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点:代码少，flex很强大    
+- 缺点:兼容性存在一定问题
+
+### 4）使用display
+**原理**
+
+- 通过设置display中的CSS3的-webkit-box属性以达到定宽+自适应+两块高度一样高。
+
+**用法**
+
+- 将父框设置为display: -webkit-box、width: 100%，再设置左框width、margin-right，最后设置右框-webkit-box-flex: 1。
+
+**代码实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="left">left</div>
+    <div class="right">right </div>
+</div>
+
+CSS
+--------------------------------------
+.parent {
+    width: 100%;
+    display: -webkit-box;
+}
+.left {
+    width:100px;
+    margin-right: 20px;
+}
+.right {
+    -webkit-box-flex: 1;
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点:-
+- 缺点:兼容性存在较大的问题
+
+## 全屏布局
+**全屏布局的特点**
+
+- 滚动条不是全局滚动条，而是出现在内容区域里，往往是主内容区域
+- 浏览器变大时，撑满窗口
+
+**全屏布局的方法**
+![Caption](http://ww3.sinaimg.cn/mw690/81b78497jw1emfgwjrh2pj21hc0u01g3.jpg)
+
+### 1）使用float
+**原理**
+
+- 将上下部分固定，中间部分使用定宽+自适应+两块高度一样高。
+
+**用法**
+
+- 见实例。
+
+**实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="top">top</div>
+    <div class="left">left</div>
+    <div class="right">
+        <div class="inner">right</div>
+    </div>
+    <div class="bottom">bottom</div>
+</div>
+
+CSS
+--------------------------------------
+html,body,.parent{
+    margin:0;
+    height:100%;
+    overflow:hidden;
+}
+body{
+    color:white;
+}
+.top{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:100px;
+    background:blue;
+}
+.left{
+    position:absolute;
+    left:0;
+    top:100px;
+    bottom:50px;
+    width:200px;
+    background:red;
+}
+.right{
+    position:absolute;
+    left:200px;
+    top:100px;
+    bottom:50px;
+    right:0;
+    background:pink;
+    overflow: auto;
+}
+.right .inner{
+    min-height: 1000px;
+}
+.bottom{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:50px;
+    background: black;
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点：兼容性好，ie6下不支持
+- 缺点：-
+
+### 2）使用flex
+**原理**
+
+- 通过灵活使用CSS3布局利器flex中的flex属性和flex-direction属性以达到全屏布局。
+
+**用法**
+
+- 见实例。
+
+**实例**
+
+{% highlight r%}
+HTML
+--------------------------------------
+<div class="parent">
+    <div class="top">top</div>
+    <div class="middle">
+        <div class="left">left</div>
+        <div class="right">
+            <div class="inner">right</div>
+        </div>
+    </div>
+    <div class="bottom">bottom</div>
+</div>
+
+CSS
+--------------------------------------
+html,body,.parent{
+    margin:0;
+    height:100%;
+    overflow:hidden;
+}
+body{
+    color: white;
+} 
+.parent{
+    display: flex;
+    flex-direction: column;
+}
+.top{
+    height:100px;
+    background: blue;
+}
+.bottom{
+    height:50px;
+    background: black;
+}
+.middle{
+    flex:1;
+    display:flex;
+}
+.left{
+    width:200px;
+    background: red;
+}
+.right{
+    flex: 1;
+    overflow: auto;
+    background:pink;
+}
+.right .inner{
+    min-height: 1000px;
+}
+
+{% endhighlight %}
+
+**优缺点**
+
+- 优点：-
+- 缺点：兼容性差，ie9及ie9以下不兼容
+
+**全屏布局相关方案的兼容性、性能和自适应一览表**
+
+| 方案	  | 兼容性	| 性能 |	是否自适应 |
+| --- | --- | --- | --- |
+| Position	| 好    | 好   |  部分自适应 |
+| Flex  	| 较差  |差    |	可自适应  |
+| Grid	    |差	   |较好  |	可自适应  |
 
 #后记
 
