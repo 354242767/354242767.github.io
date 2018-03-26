@@ -4,7 +4,6 @@ date: 2016-11-18 15:45:20
 category: 前端
 tags:
 - JavaScript
-description: 跨域解决方案
 ---
 
 # 前言
