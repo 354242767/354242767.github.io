@@ -304,6 +304,8 @@ description:
 
 可以看到，里面的JS引擎是内核进程中的一个线程，这也是为什么常说JS引擎是单线程的
 
+![](https://github.com/354242767/354242767.github.io/tree/master/assets/images/_post/browser_inner_thread.png)
+
 #### 解析URL
 
 输入URL后，会进行解析（URL的本质就是统一资源定位符）
@@ -633,7 +635,7 @@ CR->Mac Style
 
 如下图是对某请求的http报文结构的简要分析
 
-![](/assets/images/http_ajax_headers.png)
+![](https://github.com/354242767/354242767.github.io/tree/master/assets/images/_post/http_ajax_headers.png)
 
 #### cookie以及优化
 
@@ -687,7 +689,7 @@ cookie是浏览器的一种本地存储方式，一般用来帮助客户端和�
 
 关于cookie的交互，可以看下图总结
 
-![](/assets/images/http_cookie_session.png)
+![](https://github.com/354242767/354242767.github.io/tree/master/assets/images/_post/http_cookie_session.png)
 
 #### gzip压缩
 
@@ -780,7 +782,7 @@ https就是安全版本的http，譬如一些支付等操作基本都是基于ht
 
 这里放一张图（来源：[阮一峰-图解SSL/TLS协议](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)）
 
-![](/assets/images/https_connect_simple.png)
+![](https://github.com/354242767/354242767.github.io/tree/master/assets/images/_post/https_connect_simple.png)
 
 ### 单独拎出来的缓存问题，http的缓存
 
@@ -898,7 +900,7 @@ Last-Modified：
 
 各大缓存头部的整体关系如下图
 
-![](/assets/images/http_cache.png)
+![](https://github.com/354242767/354242767.github.io/tree/master/assets/images/_post/http_cache.png)
 
 ### 解析页面流程
 
@@ -924,7 +926,7 @@ Last-Modified：
 
 如下图：
 
-![](/assets/images/browser_rending.png)
+![](https://github.com/354242767/354242767.github.io/tree/master/assets/images/_post/browser_rending.png)
 
 #### HTML解析，构建DOM
 
