@@ -1711,6 +1711,86 @@ Javascript引擎基础GC方案是（simple GC）：mark and sweep（标记清除
 
 [V8 内存浅析](https://zhuanlan.zhihu.com/p/33816534)
 
+### 其它
+
+**可以提到跨域**
+
+譬如发出网络请求时，会用AJAX，如果接口跨域，就会遇到跨域问题
+
+可以参考：
+
+[ajax跨域，这应该是最全的解决方案了](https://segmentfault.com/a/1190000012469713)
+
+**可以提到web安全**
+
+譬如浏览器在解析HTML时，有XSSAuditor，可以延伸到web安全相关领域
+
+可以参考：
+
+[AJAX请求真的不安全么？谈谈Web安全与AJAX的关系](https://segmentfault.com/a/1190000012693772)
+
+**更多**
+
+如可以提到viewport概念，讲讲物理像素，逻辑像素，CSS像素等概念
+
+如熟悉Hybrid开发的话可以提及一下Hybrid相关内容以及优化
+
+…
+
+### 总结
+
+上述这么多内容，目的是：**梳理出自己的知识体系**
+
+本文由于是前端向，所以知识梳理时有重点，很多其它的知识点都简述或略去了，重点介绍的模块总结：
+
+- 浏览器的进程/线程模型、JS运行机制（这一块的详细介绍链接到了另一篇文章）
+
+- http规范（包括报文结构，头部，优化，http2.0，https等）
+
+- http缓存（单独列出来，因为它很重要）
+
+- 页面解析流程（HTML解析，构建DOM，生成CSS规则，构建渲染树，渲染流程，复合层的合成，外链的处理等）
+
+- JS引擎解析过程（包括解释阶段，预处理阶段，执行阶段，包括执行上下文、VO、作用域链、this、回收机制等）
+
+- 跨域相关，web安全单独链接到了具体文章，其它如CSS盒模型，viewport等仅是提及概念
+
+
+写在最后的话
+
+还是那句话：**知识要形成体系**
+
+梳理出知识体系后，有了一个骨架，知识点不易遗忘，而且学习新知识时也会更加迅速，更重要的是容易举一反三，可以由一个普通的问题，深挖拓展到底层原理
+
+前端知识是无穷无尽的，本文也仅仅是简单梳理出一个承载知识体系的骨架而已，更多的内容仍然需要不断学习，积累
+
+另外，本文结合[从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理](https://segmentfault.com/a/1190000012925872)，更佳噢！
+
+### 参考资料
+
+* [https://segmentfault.com/a/1190000012925872](https://segmentfault.com/a/1190000012925872)
+
+* [https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+
+* [https://coolshell.cn/articles/9666.html](https://coolshell.cn/articles/9666.html)
+
+* [http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
+
+* [http://blog.csdn.net/dojiangv/article/details/51794535](http://blog.csdn.net/dojiangv/article/details/51794535)
+
+* [http://bbs.csdn.net/topics/340204423](http://bbs.csdn.net/topics/340204423)
+
+* [https://segmentfault.com/a/1190000004246731](https://segmentfault.com/a/1190000004246731)
+
+* [http://www.bubuko.com/infodetail-1379568.html](http://www.bubuko.com/infodetail-1379568.html)
+
+* [http://fex.baidu.com/blog/2014/05/what-happen/](http://fex.baidu.com/blog/2014/05/what-happen/)
+
+* [http://www.cnblogs.com/winter-cn/archive/2013/05/21/3091127.html](http://www.cnblogs.com/winter-cn/archive/2013/05/21/3091127.html)
+
+* [http://www.cnblogs.com/TomXu/archive/2012/01/12/2308594.html](http://www.cnblogs.com/TomXu/archive/2012/01/12/2308594.html)
+
+* [https://segmentfault.com/q/1010000000489803](https://segmentfault.com/q/1010000000489803)
 
 
 
