@@ -19,11 +19,8 @@ description:
 
 ## 大纲
 - **对知识体系进行一次预评级**
-
 - **为什么说知识体系如此重要？**
-
 - **梳理主干流程**
-
 - **从浏览器接收url到开启网络请求线程**
     - 多进程的浏览器
     - 多线程的浏览器内核
@@ -78,7 +75,6 @@ description:
     - 回收机制
 
 - **其它**
-
 - **总结**
 
 ### 对知识体系进行一次预评级
@@ -146,7 +142,7 @@ description:
 
 一般符合这个条件的都会有各种隐藏属性（如看过各大框架、组件的源码，写过自己的组件、框架、脚手架，做过大型项目，整理过若干精品博文等）
 
-evel4:
+**evel4:**
 
 由于本人层次尚未达到，所以大致说下自己的见解吧。
 
@@ -160,7 +156,7 @@ evel4:
 
 这点可以参考下本题的原始出处：
 
-（http://fex.baidu.com/blog/2014/05/what-happen/）
+(http://fex.baidu.com/blog/2014/05/what-happen/)
 
 
 
@@ -172,15 +168,15 @@ evel4:
 假设有被问到这样一道题目（随意想到的一个）：
 
 {% highlight r%}
-    - 如何理解getComputedStyle
+- 如何理解getComputedStyle
 {% endhighlight %}
 
 在尚未梳理知识体系前，大概会这样回答：
 
 {% highlight r%}
-    - 普通版本：getComputedStyle会获取当前元素所有最终使用的CSS属性值（最终计算后的结果），通过window.getComputedStyle等价于document.defaultView.getComputedStyle调用
+- 普通版本：getComputedStyle会获取当前元素所有最终使用的CSS属性值（最终计算后的结果），通过window.getComputedStyle等价于document.defaultView.getComputedStyle调用
 
-    - 详细版本：window.getComputedStyle(elem, null).getPropertyValue("height")可能的值为100px，而且，就算是css上写的是inherit，getComputedStyle也会把它最终计算出来的。不过注意，如果元素的背景色透明，那么getComputedStyle获取出来的就是透明的这个背景（因为透明本身也是有效的），而不会是父节点的背景。所以它不一定是最终显示的颜色。
+- 详细版本：window.getComputedStyle(elem, null).getPropertyValue("height")可能的值为100px，而且，就算是css上写的是inherit，getComputedStyle也会把它最终计算出来的。不过注意，如果元素的背景色透明，那么getComputedStyle获取出来的就是透明的这个背景（因为透明本身也是有效的），而不会是父节点的背景。所以它不一定是最终显示的颜色。
 {% endhighlight %}
 
 
@@ -191,25 +187,25 @@ evel4:
 
 譬如现在会这样回答：
 {% highlight r%}
-    - getComputedStyle会获取当前元素所有最终使用的CSS属性值，window.和document.defaultView.等价…
+- getComputedStyle会获取当前元素所有最终使用的CSS属性值，window.和document.defaultView.等价…
 
-    - getComputedStyle会引起回流，因为它需要获取祖先节点的一些信息进行计算（譬如宽高等），所以用的时候慎用，回流会引起性能问题。然后合适的话会将话题引导回流，重绘，浏览器渲染原理等等。当然也可以列举一些其它会引发回流的操作，如offsetXXX，scrollXXX，clientXXX，currentStyle等等
+- getComputedStyle会引起回流，因为它需要获取祖先节点的一些信息进行计算（譬如宽高等），所以用的时候慎用，回流会引起性能问题。然后合适的话会将话题引导回流，重绘，浏览器渲染原理等等。当然也可以列举一些其它会引发回流的操作，如offsetXXX，scrollXXX，clientXXX，currentStyle等等
 {% endhighlight %}
 
 再举一个例子：
 {% highlight r%}
-    - visibility: hidden和display: none的区别
+- visibility: hidden和display: none的区别
 {% endhighlight %}
 
 可以如下回答：
 {% highlight r%}
-    - 普通回答，一个隐藏，但占据位置，一个隐藏，不占据位置
+- 普通回答，一个隐藏，但占据位置，一个隐藏，不占据位置
 
-    - 进一步，display由于隐藏后不占据位置，所以造成了dom树的改变，会引发回流，代价较大
+- 进一步，display由于隐藏后不占据位置，所以造成了dom树的改变，会引发回流，代价较大
 
-    - 再进一步，当一个页面某个元素经常需要切换display时如何优化，一般会用复合层优化，或者要求低一点用absolute让其脱离普通文档流也行。然后可以将话题引到普通文档流，absolute文档流，复合图层的区别，
+- 再进一步，当一个页面某个元素经常需要切换display时如何优化，一般会用复合层优化，或者要求低一点用absolute让其脱离普通文档流也行。然后可以将话题引到普通文档流，absolute文档流，复合图层的区别，
 
-    - 再进一步可以描述下浏览器渲染原理以及复合图层和普通图层的绘制区别（复合图层单独分配资源，独立绘制，性能提升，但是不能过多，还有隐式合成等等）
+- 再进一步可以描述下浏览器渲染原理以及复合图层和普通图层的绘制区别（复合图层单独分配资源，独立绘制，性能提升，但是不能过多，还有隐式合成等等）
 {% endhighlight %}
 
 上面这些大概就是知识系统化后的回答，会更全面，容易由浅入深，而且一有机会就可以往更底层挖
@@ -243,6 +239,108 @@ evel4:
 
 ### 梳理主干流程
 
+回到这道题上，如何回答呢？先梳理一个骨架
+
+知识体系中，最重要的是骨架，脉络。有了骨架后，才方便填充细节。所以，先梳理下主干流程：
+
+{% highlight r%}
+1. 从浏览器接收url到开启网络请求线程（这一部分可以展开浏览器的机制以及进程与线程之间的关系）
+
+2. 开启网络线程到发出一个完整的http请求（这一部分涉及到dns查询，tcp/ip请求，五层因特网协议栈等知识）
+
+3. 从服务器接收到请求到对应后台接收到请求（这一部分可能涉及到负载均衡，安全拦截以及后台内部的处理等等）
+
+4. 后台和前台的http交互（这一部分包括http头部、响应码、报文结构、cookie等知识，可以提下静态资源的cookie优化，以及编码解码，如gzip压缩等）
+
+5. 单独拎出来的缓存问题，http的缓存（这部分包括http缓存头部，etag，catch-control等）
+
+6. 浏览器接收到http数据包后的解析流程（解析html-词法分析然后解析成dom树、解析css生成css规则树、合并成render树，然后layout、painting渲染、复合图层的合成、GPU绘制、外链资源的处理、loaded和domcontentloaded等）
+
+7. CSS的可视化格式模型（元素的渲染规则，如包含块，控制框，BFC，IFC等概念）
+
+8. JS引擎解析过程（JS的解释阶段，预处理阶段，执行阶段生成执行上下文，VO，作用域链、回收机制等等）
+
+9. 其它（可以拓展不同的知识模块，如跨域，web安全，hybrid模式等等内容）
+{% endhighlight %}
+
+梳理出主干骨架，然后就需要往骨架上填充细节内容
 
 ### 从浏览器接收url到开启网络请求线程
+
+这一部分展开的内容是：浏览器进程/线程模型，JS的运行机制
+
+#### 多进程的浏览器
+
+浏览器是多进程的，有一个主控进程，以及每一个tab页面都会新开一个进程（某些情况下多个tab会合并进程）
+
+进程可能包括主控进程，插件进程，GPU，tab页（浏览器内核）等等
+
+{% highlight r%}
+- Browser进程：浏览器的主进程（负责协调、主控），只有一个
+
+- 第三方插件进程：每种类型的插件对应一个进程，仅当使用该插件时才创建
+
+- GPU进程：最多一个，用于3D绘制
+
+- 浏览器渲染进程（内核）：默认每个Tab页面一个进程，互不影响，控制页面渲染，脚本执行，事件处理等（有时候会优化，如多个空白tab会合并成一个进程）
+
+{% endhighlight %}
+
+#### 多线程的浏览器内核
+
+每一个tab页面可以看作是浏览器内核进程，然后这个进程是多线程的，它有几大类子线程
+
+{% highlight r%}
+- GUI线程
+
+- JS引擎线程
+
+- 事件触发线程
+
+- 定时器线程
+
+网络请求线程
+{% endhighlight %}
+
+可以看到，里面的JS引擎是内核进程中的一个线程，这也是为什么常说JS引擎是单线程的
+
+#### 解析URL
+
+输入URL后，会进行解析（URL的本质就是统一资源定位符）
+
+URL一般包括几大部分：
+
+{% highlight r%}
+- 输入URL后，会进行解析（URL的本质就是统一资源定位符）
+
+- URL一般包括几大部分：
+
+- protocol，协议头，譬如有http，ftp等
+
+- host，主机域名或IP地址
+
+- port，端口号
+
+- path，目录路径
+
+- query，即查询参数
+
+- fragment，即#后的hash值，一般用来定位到某个位置
+{% endhighlight %}
+
+#### 网络请求都是单独的线程
+
+每次网络请求时都需要开辟单独的线程进行，譬如如果URL解析到http协议，就会新建一个网络线程去处理资源下载
+
+因此浏览器会根据解析出得协议，开辟一个网络线程，前往请求资源（这里，暂时理解为是浏览器内核开辟的，如有错误，后续修复）
+
+#### 更多
+
+由于篇幅关系，这里就大概介绍一个主干流程，关于浏览器的进程机制，更多可以参考以前总结的一篇文章（因为内容实在过多，里面包括JS运行机制，进程线程的详解）
+
+[从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理](https://segmentfault.com/a/1190000012925872)
+
+
+
+
 
