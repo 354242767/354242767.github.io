@@ -202,6 +202,75 @@ description:
 
 2. **js的基本类型有哪些？引用类型有哪些？null和undefined的区别**
 - 基本类型：`Null`、`Undifined`、`Number`、`String`、`Boolean`5种。
-- 复杂类型：`Object`、`Array`、
+- 引用类型：`Object`（`Array`、`Date`、`Function`、`Regexp`、`Error`)。
+- Null：空对象指针，特殊对象（正常或意料之中的值的空缺）；Undifined：声明但未赋值/初始化（出乎意料或错误的值的空缺）
 
+3. **引用类型和基本类型区别**
+- 基本类型的值内存大小固定保存在栈内存中
+- 引用类型的值保存在堆内存中
+- 包含引用类型值的变量实际包含的是指向该对象的指针，而不是对象本身
+- 一个变量到另一个变量复制，会创建这个值的副本（引用对象则复制的是指针）
+- 确定基本数据类型使用 typeof 操作符，确定引用数据类型使用 instanceof 操作符
 
+4. **简述类型判断的方法有哪些**
+- typeof操作符：能检测基本数据类型（Function也可以）
+- intanceof操作符：能检测复杂数据类型
+- Constructor属性：除Null和Undefined没有该属性外都能检测出数据类型
+- Object.prototype.toString.call()方法:能检测出所有类型
+- $.type()方法：底层实现同上，能检测出所有类型
+
+5. **常用的dom操作API**
+- 创建：createElement()、createTextNode()、cloneNode()、createDocumentFragment()
+- 添加：appendChild()、insertBefore()、replaceChild()
+- 删除：removeChild()
+- 查询：getElementById()、getElementsByTagName()、getElementsByName()、getElementsByClassName()、querySelector()、        querySelectorAll()
+
+6. **事件冒泡和事件捕获**
+- js事件的三个阶段分别为：捕获、目标、冒泡
+    1. 捕获：事件由页面元素接收，逐级向下，到具体的元素  
+    2. 目标：具体的元素本身  
+    3. 冒泡：跟捕获相反，具体元素本身触发，逐级向上，到页面元素 
+
+7. **事件委托**
+- 利用事件冒泡将可能发生在子元素上的事件绑定在父元素上，再根据具体触发事件的元素执行相应的操作。
+- 优点：减少事件注册，节省内存；动态添加事件（新添加的子元素也能触发）
+- 缺点：基于事件冒泡的兼容性。
+
+8. **对闭包的理解**
+- 不要单纯的就闭包的定义而解释（如仅回答：可以读取函数内部的变量，让这些变量的值始终保持在内存中。）
+- 拓展：理解闭包->理解作用域（局部/全局变量访问权限,作用域呈层级包含状态，形成作用域链）->可以阻止变量被 GC 回收(js的两种垃圾回收方式标记清除和引用计数)
+
+9. **对this的理解**
+    1. 函数作为变量出现（非属性），this指向Global对象（严格模式undefined）
+    2. 函数作为对象方法调用，this指向调用对象（使用call、apply、bind时将this指向第一个参数）
+    3. 构造函数中的this指向新创建的对象。
+    4. ES6 箭头函数内的this值继承自外围作用域。
+
+10. **call，apply，bind**
+- 用于指定this的环境，第一个参数即为推送的指向
+- obj.bind(newObj)返回的是函数,按需调用obj.bind(newObj)()
+- obj.call(newObj,arg1,arg2)立即调用，后续参数以列表方式
+- obj.call(newObj,arr)立即调用，后续参数以数组方式
+
+11. **创建对象的常用方式**
+- 构造函数方式 var o=new Object();/var p=new Person('cxh')。缺点是方法无复用，每个对象的方法重新创建，浪费内存 
+- 对象字面量方式 var o={name:'cxh'}。缺点是同类型对象创建繁琐
+- 工厂函数方式 creatObj(a,b,c){var o=new Object();xxx;retturn o;}。缺点是无法判确定回对象类型
+- 原型方式 function Person(){};Person.prototype.xxx=xxx。缺点是不灵活
+- 构造函数+原型方式 （最佳实践）
+
+12. **实现继承的多种方式**
+- 原型继承
+- 构造函数实现继承
+- 组合式继承
+- 寄生组合式继承
+- es6中的class
+
+13. **new 一个对象具体做了什么**
+- 创建一个新对象
+- 新对象的_proto_属性指向构造函数的原型对象
+- 将构造函数的作用域赋值给新对象（也所以this对象指向新对象）
+- 执行构造函数内部的代码，将属性添加给新对象
+- 返回新对象
+
+14. 
