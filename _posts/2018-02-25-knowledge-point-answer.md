@@ -196,7 +196,7 @@ description:
 
 ### JavaScript篇
 1. **对JavaScript语言的理解**
-- JavaScript是一种专为与网页交互而设计的脚步语言，有ECMAScript、Dom、Bom三个部分组成
+- JavaScript是一种专为与网页交互而设计的脚步语言，由ECMAScript、Dom、Bom三个部分组成
     1. ECMAScript：有ECMA-262定义，提供JavaScript的核心语言功能；
     2. Dom（文档对象模型）：提供访问和操作网页内容的方法和接口；
     3. Bom（浏览器对象模型）：提供与浏览器交互的方法和接口。
@@ -325,6 +325,48 @@ description:
 - 多态的基本概念：一个变量(含引用类型)在不同情况下的多种状态（弱类型语言天生多态，只有在赋值时才确认类型）。
 - 实现多态的方式两种：
     1. 重写/覆盖:覆盖指子类重新定义父类方法，这正好就是基于prototype继承的用法
-    2. 重载：重载是指多个同名但参数不同的方法（js语法特性不支持，会覆盖之前同名变量；但传入的参数是多态的）。
+    2. 重载：重载是指多个同名但参数不同的方法（js语法特性不支持，会覆盖之前同名变量；但接受的参数是多态的）。
 
-20. ****
+20. **js常用字符串API、数组API**
+- 字符串API：
+    1. 不影响原字符串：
+        - toString();
+        - str.charAt(index)、str.charCodeAt(index)-->返回给定位置的那个字符、字符编码。
+        - 去空格-str.trim()-->该方法删除前置和后缀的所有空格，然后返回结果。
+        - 查询索引-str.indexOf(target,fromIndex)/lastIndexOf(target,fromIndex)-->从前往后搜索/从后往前搜索，返回index值。
+        - 大小写转换-str.toLowerCase()/str.toUpperCase()、toLocaleLowerCase()/toLocaleUpperCase()
+        - stringObject.replace(regexp/substr,replacement)
+        - match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配
+        - etc.
+    2. 改变原字符串:
+        - split() 方法用于把一个字符串分割成字符串数组。
+- 数组API
+    1. 不影响原数组：
+        - concat():连接多个数组，返回新的数组
+        - join()：将数组中所有元素以参数作为分隔符放入一个字符串
+        - slice()：slice(start,end)，返回选定元素，左闭右开
+        - map,filter,forEach,some,every用于迭代
+        - 注：以上方法可用于字符串（join除外）
+    2. 改变原数组：
+        - unshift()/shift(): 添加/删除数组的第一个元素
+        - push()/pop(): 添加/删除数组的最后一个元素
+        - reverse(): 颠倒数组
+        - sort(compare): 排序数组
+        - splice(start,length,item): 删，增，替换数组元素，返回新数组
+
+21. **深克隆实现**
+- 需理解三个方面的知识：基本类型和引用类型、如何判断一个变量的类型、递归实现
+```
+Object.prototype.clone = function(){
+	if(this.constructor === Array||this.constructor === Object){
+		var o = this.constructor === Array ? [] : {};
+        for(var e in this){
+            o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
+        }
+        return o;
+	}else{
+		return this;
+	}
+   
+}
+```
