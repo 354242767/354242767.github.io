@@ -87,7 +87,7 @@ description:
 - 重绘（repaint）：元素外观的改变所触发的浏览器行为。 如：颜色、 visibility、背景色等。
 - 回流(reflow)：元素的规模尺寸，布局，隐藏等改变而需要浏览器重新构建渲染树。
 - 注意：回流必将引起重绘，而重绘不一定会引起回流。
-- 优化:
+- 优化:见8
 
 7. **引发回流的操作**
 - 页面渲染初始化
@@ -320,14 +320,14 @@ description:
 - 编程语言：它是具有逻辑性和行为能力，这是主动的（说通俗一点，它是有思想的）。
 - 脚本语言：它介于标记语言和编程语言之间，脚本语言不需要编译，可以直接用，由解释器来负责解释。
 
-19. **js的多态**
+**js的多态**
 - 面向对象的语言特点:封装、继承、多态
 - 多态的基本概念：一个变量(含引用类型)在不同情况下的多种状态（弱类型语言天生多态，只有在赋值时才确认类型）。
 - 实现多态的方式两种：
     1. 重写/覆盖:覆盖指子类重新定义父类方法，这正好就是基于prototype继承的用法
     2. 重载：重载是指多个同名但参数不同的方法（js语法特性不支持，会覆盖之前同名变量；但接受的参数是多态的）。
 
-20. **js常用字符串API、数组API**
+**js常用字符串API、数组API**
 - 字符串API：
     1. 不影响原字符串：
         - toString();
@@ -354,7 +354,7 @@ description:
         - sort(compare): 排序数组
         - splice(start,length,item): 删，增，替换数组元素，返回新数组
 
-21. **深克隆实现**
+**深克隆实现**
 - 需理解三个方面的知识：基本类型和引用类型的区别、如何判断一个变量的类型、递归实现
 ``` javascript
 Object.prototype.clone = function(){
@@ -371,7 +371,7 @@ Object.prototype.clone = function(){
 }
 ```
 
-22. **ajax的理解**
+**ajax的理解**
 - AJAX（Asynchronous JavaScript and XML）：在无需重新加载整个网页的情况下，能够更新部分网页。
 - 核心是XMLHttpRequest对象
 - 实现步骤
@@ -395,7 +395,7 @@ Object.prototype.clone = function(){
         4. 兼容问题 -  并非所有端都支持（如一些手机和pad）
         5. 用户禁用js时，将无法获取数据
 
-23. **js异常处理机制**
+**js异常处理机制**
 - 同其他后端语言类似：try-catch-finally
 - js错误类型（内置对象）
     - Error：所有错误类型的父类型
@@ -404,12 +404,12 @@ Object.prototype.clone = function(){
 - throw 关键字抛出来主动抛出异常 ：throw new Error(message);
 - 不管是浏览器抛出的，还是代码主动抛出，都会让程序停止执行（try-catch处理的代码除外）。
 
-24. **cookie、session、web storage**
+**cookie、session、web storage**
 - cookie：客户端数据持久化存储技术，小文本文件（大小限制单个cookie 4K），它可以包含有关用户的信息，伴随请求发送服务器（不安全）交互，http规范的一部分（不可或缺）
 - session：会话级别的服务器存储技术，时间限制，占用服务器性能。
 - web storage：本地数据存储，相比cookie容量更大，自带set/get方法，更为方便。localStorage和sessionStorage两种。
 
-25. **websocket**
+**websocket**
 - WWebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。
 - 传统通信方式
     1. ajax轮询：需要服务器有很快的处理速度和资源。（速度）
@@ -417,4 +417,4 @@ Object.prototype.clone = function(){
 - 在HTML5中内置有一些API，用于响应应用程序发起的请求。
 - 实现原理：在实现websocket连线过程中，需要通过浏览器发出websocket连线请求，然后服务器发出回应，这个过程通常称为“握手” 。在 WebSocket API，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。
 
-26. ****
+****
