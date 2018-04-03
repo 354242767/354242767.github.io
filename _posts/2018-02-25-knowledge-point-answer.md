@@ -310,7 +310,6 @@ description:
     
 18. **js语言特性**
 - js的语言特性：弱类型、动态的、解释型的脚本语言
-
 - 弱类型：类型检查不严格，偏向于容忍隐式类型转换。 
 - 强类型：类型检查严格，偏向于不容忍隐式类型转换。 
 - 动态类型：运行的时候执行类型检查。 
@@ -357,7 +356,6 @@ description:
 
 21. **深克隆实现**
 - 需理解三个方面的知识：基本类型和引用类型的区别、如何判断一个变量的类型、递归实现
-
 ``` javascript
 Object.prototype.clone = function(){
 	if(this.constructor === Array||this.constructor === Object){
@@ -385,7 +383,6 @@ Object.prototype.clone = function(){
         - xmlHttp.readyState==4 //ajax已经完全接收了服务器的响应信息，但是状态码未必是正确的(0/1/2/3/4)
         - xmlHttp.status == 200 //成功(2xx/3xx/4xx/5xx)
         - xmlHttp.responseText/xmlHttp.requestXML 为服务器返回值
-
 - 优缺点：
     - 优点：
         1. 异步通信，不阻塞页面，响应快，用户体验好。
@@ -417,7 +414,6 @@ Object.prototype.clone = function(){
 - 传统通信方式
     1. ajax轮询：需要服务器有很快的处理速度和资源。（速度）
     2. long poll：需要有很高的并发，也就是说同时接待客户的能力。（场地大小）
-
 - 在HTML5中内置有一些API，用于响应应用程序发起的请求。
 - 实现原理：在实现websocket连线过程中，需要通过浏览器发出websocket连线请求，然后服务器发出回应，这个过程通常称为“握手” 。在 WebSocket API，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。
 
