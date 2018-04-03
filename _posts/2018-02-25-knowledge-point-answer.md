@@ -355,7 +355,7 @@ description:
         - splice(start,length,item): 删，增，替换数组元素，返回新数组
 
 21. **深克隆实现**
-- 需理解三个方面的知识：基本类型和引用类型、如何判断一个变量的类型、递归实现
+- 需理解三个方面的知识：基本类型和引用类型的区别、如何判断一个变量的类型、递归实现
 ```
 Object.prototype.clone = function(){
 	if(this.constructor === Array||this.constructor === Object){
@@ -370,3 +370,51 @@ Object.prototype.clone = function(){
    
 }
 ```
+
+22. **ajax的理解**
+- AJAX（Asynchronous JavaScript and XML）：在无需重新加载整个网页的情况下，能够更新部分网页。
+- 核心是XMLHttpRequest对象
+- 实现步骤
+    1. 创建XMLHttpRequest对象xmlHttp -（该对象有两个方法open()/send()）
+    2. 使用open()方法与服务器建立连接 - xmlHttp.open(method,url,true)，
+        - 此步注意设置http的请求方式（post/get）,如果是POST方式，注意设置请求头信息xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+    3. 向服务器端发送数据 - xmlHttp.send(null);如果是POST方式就不为空
+    4. 在监听函数中针对不同的响应状态进行处理 -xmlHttp.onreadystatechange=function(){}
+        - xmlHttp.readyState==4 //ajax已经完全接收了服务器的响应信息，但是状态码未必是正确的(0/1/2/3/4)
+        - xmlHttp.status == 200 //成功(2xx/3xx/4xx/5xx)
+        - xmlHttp.responseText/xmlHttp.requestXML 为服务器返回值
+- 优缺点：
+    - 优点：
+        1. 异步通信，不阻塞页面，响应快，用户体验好。
+        2. 减轻服务器负担，按需加载，节约带宽。
+        3. 基于标准化并被广泛支持的技术，不需要下载插件或者小程序。
+    - 缺点
+        1. 破了浏览器的后退机制 - 无法返回上一部操作
+        2. 安全问题 - 暴露更多数据和逻辑造成安全隐患（如跨站点脚步攻击、SQL注入攻击和基于credentials的安全漏洞等。）
+        3. 对搜索引擎的支持比较弱。
+        4. 兼容问题 -  并非所有端都支持（如一些手机和pad）
+        5. 用户禁用js时，将无法获取数据
+
+23. **js异常处理机制**
+- 同其他后端语言类似：try-catch-finally
+- js错误类型（内置对象）
+    - Error：所有错误类型的父类型
+    - EvalError、RangeError、SyntaxError、TypeError、URIError、ReferenceError
+    - 可自定义错误类型：MyError.prototype = new xxxError();
+- throw 关键字抛出来主动抛出异常 ：throw new Error(message);
+- 不管是浏览器抛出的，还是代码主动抛出，都会让程序停止执行（try-catch处理的代码除外）。
+
+24. **cookie、session、web storage**
+- cookie：客户端数据持久化存储技术，小文本文件（大小限制单个cookie 4K），它可以包含有关用户的信息，伴随请求发送服务器（不安全）交互，http规范的一部分（不可或缺）
+- session：会话级别的服务器存储技术，时间限制，占用服务器性能。
+- web storage：本地数据存储，相比cookie容量更大，自带set/get方法，更为方便。localStorage和sessionStorage两种。
+
+25. **websocket**
+- WWebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。
+- 传统通信方式
+    1. ajax轮询：需要服务器有很快的处理速度和资源。（速度）
+    2. long poll：需要有很高的并发，也就是说同时接待客户的能力。（场地大小）
+- 在HTML5中内置有一些API，用于响应应用程序发起的请求。
+- 实现原理：在实现websocket连线过程中，需要通过浏览器发出websocket连线请求，然后服务器发出回应，这个过程通常称为“握手” 。在 WebSocket API，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。
+
+26. ****
