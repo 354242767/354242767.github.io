@@ -227,7 +227,7 @@ description:
 - 查询：getElementById()、getElementsByTagName()、getElementsByName()、getElementsByClassName()、querySelector()、        querySelectorAll()
 
 6. **事件冒泡和事件捕获**
-- js事件的三个阶段分别为：捕获、目标、冒泡
+- js事件流的三个阶段分别为：捕获、目标、冒泡
     1. 捕获：事件由页面元素接收，逐级向下，到具体的元素  
     2. 目标：具体的元素本身  
     3. 冒泡：跟捕获相反，具体元素本身触发，逐级向上，到页面元素 
@@ -242,6 +242,7 @@ description:
 - 拓展：理解闭包->理解作用域（局部/全局变量访问权限,作用域呈层级包含状态，形成作用域链）->可以阻止变量被 GC 回收(js的两种垃圾回收方式标记清除和引用计数)
 
 9. **对this的理解**
+- this是在运行时基于函数的执行环境绑定的
     1. 函数作为变量出现（非属性），this指向Global对象（严格模式undefined）
     2. 函数作为对象方法调用，this指向调用对象（使用call、apply、bind时将this指向第一个参数）
     3. 构造函数中的this指向新创建的对象。
@@ -327,6 +328,23 @@ description:
     1. 重写/覆盖:覆盖指子类重新定义父类方法，这正好就是基于prototype继承的用法
     2. 重载：重载是指多个同名但参数不同的方法（js语法特性不支持，会覆盖之前同名变量；但接受的参数是多态的）。
 
+**js动画和css3动画比较**
+- 功能涵盖面，JS比CSS3大
+    - 定义动画过程的@keyframes不支持递归定义，如果有多种类似的动画过程，需要调节多个参数来生成的话，将会有很大的冗余（比如jQuery Mobile的动画方案），而JS则天然可以以一套函数实现多个不同的动画过程
+    - 时间尺度上，@keyframes的动画粒度粗，而JS的动画粒度控制可以很细
+    - CSS3动画里被支持的时间函数非常少，不够灵活
+    - 以现有的接口，CSS3动画无法做到支持两个以上的状态转化
+- 实现/重构难度不一，CSS3比JS更简单，性能调优方向固定
+- 对于帧速表现不好的低版本浏览器，CSS3可以做到自然降级，而JS则需要撰写额外代码
+- CSS动画有天然事件支持（TransitionEnd、AnimationEnd，但是它们都需要针对浏览器加前缀），JS则需要自己写事件
+- CSS3有兼容性问题，而JS大多时候没有兼容性问题
+- CSS动画比JS流畅的前提：
+    - 在Chromium基础上的浏览器中
+    - JS在执行一些昂贵的任务
+    - 同时CSS动画不触发layout或paint
+    - 在CSS动画或JS动画触发了paint或layout时，需要main thread进行Layer树的重计算，这时CSS动画或JS动画都会阻塞后续操作。
+
+
 **js常用字符串API、数组API**
 - 字符串API：
     1. 不影响原字符串：
@@ -411,11 +429,73 @@ Object.prototype.clone = function(){
 - web storage：本地数据存储，相比cookie容量更大，自带set/get方法，更为方便。localStorage和sessionStorage两种。
 
 **websocket**
-- WWebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。
+- WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器与服务器全双工(full-duplex)通信——允许服务器主动发送信息给客户端。
 - 传统通信方式
     1. ajax轮询：需要服务器有很快的处理速度和资源。（速度）
     2. long poll：需要有很高的并发，也就是说同时接待客户的能力。（场地大小）
 - 在HTML5中内置有一些API，用于响应应用程序发起的请求。
 - 实现原理：在实现websocket连线过程中，需要通过浏览器发出websocket连线请求，然后服务器发出回应，这个过程通常称为“握手” 。在 WebSocket API，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。
 
-****
+**函数柯里化**
+- 概念:是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。(头晕没怎么看明白..)
+- 延迟计算、参数复用、动态生成函数的作用。
+- 面试题辅助理解
+
+``` javascript
+//要求写一个函数add()，分别实现能如下效果：
+add(1)(2)(3)(4)();//10
+add(1,2)(3,4)();//10
+add(1)(2)(3)(4);//10
+add(1,2)(3,4);//10
+
+function add(arg) {
+    let sum = 0;
+    sum = Array.prototype.slice.call(arguments).reduce((a,b) => {return a+b;},sum);
+    var tmpf = function (tmarg) {
+        if (arguments.length == 0) {
+            return sum;
+        }else{
+            sum = Array.prototype.slice.call(arguments).reduce((a,b) => {return a+b;},sum);
+            return tmpf;
+        }
+    };
+    tmpf.toString = tmpf.valueOf = function () {
+        return sum;
+    }
+    return tmpf;
+}
+
+```
+**js的设计模式**
+- 什么单列模式、工厂模式、代理模式、观察者模式之类的（共23种）。
+- 高级程序员关注点。总的来说：是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。
+
+**JS代码调试**
+Chrome Developer Tool常用功能：
+- 代码格式化：可以将被压缩的代码自动展开
+- 实时代码编辑：可以在运行时动态改变 JS 代码，并且不需要刷新页面就可以看到效果，一般用这个实时的在代码里插 console.log
+- DOM 事件/XHR 断点：可以针对 DOM 结构改变/属性改变/键盘鼠标事件 等下断点，直接断到事件的第一个 listener 函数上。还可以对 XHR 请求下断点，断到发起请求的那一行代码上
+- 调用栈分析：这个非常常用，Scripts 面板下右上角的那一部分
+- 自动异常断点：当代码执行出错时，可以自动断到出错的代码行上，直接分析出错时的运行时环境
+- 分析 HTTP 请求：Network 面板下列出了所有的 HTTP 请求，可以很方便的查看请求内容、HTTP 头、请求时间等信息
+
+
+### ES6
+
+### Nodejs
+
+### 计算机网络
+
+### 浏览器相关
+
+### 工程化
+
+### 模块化
+
+### 框架
+
+### 数据结构
+
+### 性能优化
+
+### 其他
