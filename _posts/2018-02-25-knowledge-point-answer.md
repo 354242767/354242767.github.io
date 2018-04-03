@@ -356,6 +356,7 @@ description:
 
 **深克隆实现**
 - 需理解三个方面的知识：基本类型和引用类型的区别、如何判断一个变量的类型、递归实现
+
 ``` javascript
 Object.prototype.clone = function(){
 	if(this.constructor === Array||this.constructor === Object){
