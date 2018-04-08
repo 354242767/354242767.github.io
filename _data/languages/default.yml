@@ -7,6 +7,7 @@ title:
   categories: Categories
   tags: Tags
   about: About
+  examples: Examples
 
 author: Author
 
@@ -76,6 +77,7 @@ state:
   pages: pages
   tags: tags
   categories: categories
+  examples: examples
 
 search:
   placeholder: Searching...
