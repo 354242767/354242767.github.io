@@ -7,6 +7,7 @@ title:
   categories: Categories
   tags: Tags
   about: About
+  examples: Examples
 
 author: Author
 
@@ -16,6 +17,7 @@ menu:
   categories: Categories
   tags: Tags
   about: About
+  examples: Examples
   search: Search
   schedule: Schedule
   sitemap: Sitemap
