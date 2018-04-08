@@ -117,7 +117,7 @@ menu:
   categories: /categories/
   archives: /archives/
   tags: /tags/
-  example: /example/
+  examples: /examples/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
@@ -131,7 +131,7 @@ menu_icons:
   enable: true
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
-  example: user
+  examples: user
   categories: th
   schedule: calendar
   tags: tags
