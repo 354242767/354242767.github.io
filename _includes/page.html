@@ -42,12 +42,12 @@
   {% elsif page.type == 'examples' %}
   <div class="tag-cloud">
       <div class="tag-cloud-title">
-          {% if site.tags.size == 0 %}
+          {% if site.examples.size == 0 %}
             {{ __.counter.tag_cloud.zero }}
-          {% elsif site.tags.size == 1 %}
+          {% elsif site.examples.size == 1 %}
             {{ __.counter.tag_cloud.one }}
           {% else %}
-            {{ __.counter.tag_cloud.other | replace: '%d', site.tags.size }}
+            {{ __.counter.tag_cloud.other | replace: '%d', site.examples.size }}
           {% endif %}
       </div>
       <div class="tag-cloud-tags">
