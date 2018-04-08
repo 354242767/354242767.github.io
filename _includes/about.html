@@ -6,10 +6,10 @@
       </{% if site.seo %}h2{% else %}h1{% endif %}>
     </div>
   
-    {% assign paginate = site.category.paginate | default: site.paginate  %}
-    {% assign paginate_path = site.category.paginate_path | default: site.paginate_path  %}
+    {% assign paginate = site.about.paginate | default: site.paginate  %}
+    {% assign paginate_path = site.about.paginate_path | default: site.paginate_path  %}
   
-    {% for cat_posts in site.categories %}
+    {% for cat_posts in site.items %}
       {% assign cat = cat_posts[0] | url_encode | replace: '+', '%20' %}
       {% assign posts = cat_posts[1] %}
   
