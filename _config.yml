@@ -139,7 +139,13 @@ menu_icons:
   sitemap: sitemap
   commonweal: heartbeat
 
+# ---------------------------------------------------------------
+# examples
 
+examples:
+  Games:
+  Animation:
+  Effects:
 
 
 # ---------------------------------------------------------------
