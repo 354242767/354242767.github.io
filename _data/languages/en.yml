@@ -71,6 +71,11 @@ counter:
     one: 1 post.
     other: "%d posts in total."
 
+  examples: 
+    zero: No examples
+    one: 1 examples in total
+    other: "%d examples in total"
+
 state:
   posts: posts
   pages: pages

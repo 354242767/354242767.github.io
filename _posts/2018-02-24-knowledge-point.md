@@ -8,6 +8,10 @@ tags:
 - JavaScript
 - CSS
 - HTML
+examples:
+- Games
+- Animation
+- Effects
 description:
 - 总结2018前端关注的知识点，整理自己前端的知识体系。
 ---
