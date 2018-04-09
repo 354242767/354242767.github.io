@@ -53,7 +53,7 @@
       <div class="tag-cloud-tags">
         {% for example in site.examples %}
           {% assign example_url_encode = example[0] | url_encode | replace: '+', '%20' %}
-          <a href="{{ '/example/#/' | relative_url | append: example_url_encode }}" style="font-size: 24.0px;color: rgb(79,79,79)">{{ example[0] }}</a>
+          <a href="{{ '/examples/projects/' | relative_url | append: example_url_encode }}" style="font-size: 24.0px;color: rgb(79,79,79)">{{ example[0] }}</a>
         {% endfor %}
       </div>
     </div>
