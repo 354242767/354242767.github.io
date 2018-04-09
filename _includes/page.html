@@ -47,7 +47,7 @@
           {% elsif site.examples.size == 1 %}
             {{ __.counter.examples.one }}
           {% else %}
-            {{ site.examples.size  }} {{ __.counter.examples.other }}
+            {{ __.counter.examples.other | replace: '%d', 15 }}
           {% endif %}
       </div>
       <div class="tag-cloud-tags">
