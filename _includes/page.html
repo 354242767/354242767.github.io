@@ -47,7 +47,7 @@
           {% elsif site.examples.size == 1 %}
             {{ __.counter.examples.one }}
           {% else %}
-            {{ __.counter.examples.other | replace: '%d', 15 }}
+            {{ __.counter.examples.other | replace: '%d', 15 }} 
           {% endif %}
       </div>
       <div class="tag-cloud-tags">
@@ -57,8 +57,8 @@
         {% assign color = true %}
         {% assign start_color = '204,204,204' %}
         {% assign end_color = '17,17,17' %}
-        {% include _helper/tagcloud.html %}
-        {{ tagcloud }}
+        {% include _helper/examplecloud.html %}
+        {{ examplecloud }}
       </div>
     </div>
   {% else %}
