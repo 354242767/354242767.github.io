@@ -12,6 +12,8 @@
       {{ __.title.tags | append: page_title_suffix }}
     {% elsif page.type == "about" and page.title == nil %}
       {{ __.title.about | append: page_title_suffix }}
+    {% elsif page.type == "examples" and page.title == nil %}
+      {{ __.title.examples | append: page_title_suffix }}
     {% else %}
       {{ page.title | append: page_title_suffix }}
     {% endif %}
@@ -24,6 +26,8 @@
   {% capture title %}{{ __.title.tag }} | {{ site.title }}{% endcapture %}
 {% when 'schedule' %}
   {% capture title %}{{ __.title.schedule }} | {{ site.title }}{% endcapture %}
+{% when 'example' %}
+  {% capture title %}{{ __.title.example }} | {{ site.title }}{% endcapture %}
 {% endcase %}
 
 {% assign title = title | strip_newlines %}
