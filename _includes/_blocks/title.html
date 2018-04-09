@@ -3,10 +3,6 @@
   {% capture title %}{{ site.title }}{% if site.index_with_subtitle and site.subtitle %} - {{site.subtitle }}{% endif %}{% endcapture %}
 {% when 'post' %}
   {% capture title %}{{ page.title }} | {{ site.title }}{% endcapture %}
-{% when 'layout' %}
-  {% if page.type == "examples" and page.title == nil %}
-    {% assign page_title_suffix = ' :examples | ' | append: site.title %} 
-    {{ page.pro-name | append: page_title_suffix }}
 {% when 'page' %}
   {% capture title %}
     {% assign page_title_suffix = ' | ' | append: site.title %}
