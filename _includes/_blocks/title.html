@@ -14,7 +14,7 @@
       {{ __.title.about | append: page_title_suffix }}
     {% elsif page.type == "examples" and page.title == nil %}
       {{ __.title.examples | append: page_title_suffix }}
-    {% elsif page.type  %}
+    {% elsif page.type and page.title == nil %}
       {{ page.type  | append: page_title_suffix }}
     {% else %}
       {{ page.title | append: page_title_suffix }}
