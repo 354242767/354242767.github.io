@@ -51,13 +51,7 @@
           {% endif %}
       </div>
       <div class="tag-cloud-tags">
-        {% assign min_font = 12 %}
-        {% assign max_font = 30 %}
-        {% assign amount = 200 %}
-        {% assign color = true %}
-        {% assign start_color = '204,204,204' %}
-        {% assign end_color = '17,17,17' %}
-        {% for example in examples %}
+        {% for example in site.examples %}
           {% assign example_url_encode = example[0] | url_encode | replace: '+', '%20' %}
           <a href="{{ '/example/#/' | relative_url | append: example_url_encode }}" style="font-size: 24.0px;color: rgb(79,79,79)">{{ example[0] }}</a>
         {% endfor %}
