@@ -1,5 +1,10 @@
 <div >
-  哈哈哈
+    <div class="collection-title">
+        <{% if site.seo %}h2{% else %}h1{% endif %}>
+        {{ page.example }}
+        <small>{{  __.title.example  }}</small>
+        </{% if site.seo %}h2{% else %}h1{% endif %}>
+    </div>
 </div>
     
 
