@@ -1,5 +1,10 @@
 $(function () {
     document.getElementById("gameBody").addEventListener("touchmove",function(e){
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    document.getElementById("gameBody").addEventListener("touchstart",function(e){
+        e.preventDefault();
         e.stopPropagation();
     });
     //是否产生新元素
