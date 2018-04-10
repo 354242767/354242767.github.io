@@ -1,5 +1,7 @@
 $(function () {
-    
+    document.getElementById("gameBody").addEventListener("touchmove",function(e){
+        e.stopPropagation();
+    });
     //是否产生新元素
     var isNewRndItem = false;
     var gameScore = 0;
@@ -282,8 +284,6 @@ $(function () {
         document.getElementById("gameBody").addEventListener('toudown', function (e) {
             // alert("方向向下");
             //console.log('down');
-            //阻止冒泡
-            e.stopPropagation();
             isNewRndItem = false;
             move('down');
             isGameOver();
