@@ -1,9 +1,5 @@
 $(function () {
-    //阻止手机端浏览器下拉页面向下移动
-    document.querySelector('body').addEventListener('touchmove', function (ev) {
-        event.preventDefault();
-    });
-
+    
     //是否产生新元素
     var isNewRndItem = false;
     var gameScore = 0;
