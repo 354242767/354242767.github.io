@@ -1,11 +1,12 @@
 $(function () {
     document.getElementById("gameBody").addEventListener("touchmove",function(e){
         e.preventDefault();
-        e.stopPropagation();
+        e && e.stopPropagation ? e.stopPropagation() : window.event.cancelBubble = true; 
+        
     });
     document.getElementById("gameBody").addEventListener("touchstart",function(e){
         e.preventDefault();
-        e.stopPropagation();
+        e && e.stopPropagation ? e.stopPropagation() : window.event.cancelBubble = true;
     });
     //是否产生新元素
     var isNewRndItem = false;
