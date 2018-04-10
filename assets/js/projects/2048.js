@@ -282,8 +282,7 @@ $(function () {
         document.getElementById("gameBody").addEventListener('toudown', function (e) {
             // alert("方向向下");
             //console.log('down');
-            //阻止冒泡
-            event.stopPropagation();
+            e.preventDefault();
             isNewRndItem = false;
             move('down');
             isGameOver();
