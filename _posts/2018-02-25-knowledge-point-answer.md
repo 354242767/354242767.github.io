@@ -99,7 +99,8 @@ description:
 - 获取一些属性时(需要浏览器重新构建渲染树计算)：offsetxxx、scrollxxx、clientxxx、getComputedStyle() (currentStyle in IE)
 
 8. **关于回流的优化**
-- 集中读取引发回流的操作
+- 合并多次会引发回流的对样式属性的操作。
+- 缓存布局信息（var a=obj.offsetXXX 赋值给变量，然后操作变量）
 - 善用文档片段createDocumentFragment()，避免多次构建渲染树。
 - 利用diplay和float将回流控制在2次（先 隐藏/脱离文档流 再操作最后显示）
 
