@@ -1,4 +1,9 @@
 $(function () {
+    
+    document.querySelector('body').addEventListener('touchstart', function (ev) {
+        event.preventDefault();
+    });
+
     //是否产生新元素
     var isNewRndItem = false;
     var gameScore = 0;
