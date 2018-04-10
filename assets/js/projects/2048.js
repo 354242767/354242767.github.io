@@ -1,5 +1,5 @@
 $(function () {
-    
+    //阻止手机端浏览器下拉页面向下移动
     document.querySelector('body').addEventListener('touchstart', function (ev) {
         event.preventDefault();
     });
@@ -236,28 +236,28 @@ $(function () {
         switch (e.keyCode) {
             case 37:
                 // left
-                console.log('left');
+                //console.log('left');
                 isNewRndItem = false;
                 move('left');
                 isGameOver();
                 break;
             case 38:
                 // up
-                console.log('up');
+                //console.log('up');
                 isNewRndItem = false;
                 move('up');
                 isGameOver();
                 break;
             case 39:
                 // right
-                console.log('right');
+                //console.log('right');
                 isNewRndItem = false;
                 move('right');
                 isGameOver();
                 break;
             case 40:
                 // down
-                console.log('down');
+                //console.log('down');
                 isNewRndItem = false;
                 move('down');
                 isGameOver();
@@ -271,28 +271,28 @@ $(function () {
         document.getElementById("gameBody").addEventListener('touright', function (e) {
             e.preventDefault();
             // alert("方向向右");
-            console.log('right');
+            //console.log('right');
             isNewRndItem = false;
             move('right');
             isGameOver();
         });
         document.getElementById("gameBody").addEventListener('touleft', function (e) {
             // alert("方向向左");
-            console.log('left');
+            //console.log('left');
             isNewRndItem = false;
             move('left');
             isGameOver();
         });
         document.getElementById("gameBody").addEventListener('toudown', function (e) {
             // alert("方向向下");
-            console.log('down');
+            //console.log('down');
             isNewRndItem = false;
             move('down');
             isGameOver();
         });
         document.getElementById("gameBody").addEventListener('touup', function (e) {
             // alert("方向向上");
-            console.log('up');
+            //console.log('up');
             isNewRndItem = false;
             move('up');
             isGameOver();
