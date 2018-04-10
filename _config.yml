@@ -143,9 +143,9 @@ menu_icons:
 # examples
 
 examples:
-  Games: 1
-  Swiper: 2
-  Effects: 3
+  Game-2048: Game
+  Swiper: Animation
+  Effects: Effects
 
 
 # ---------------------------------------------------------------
