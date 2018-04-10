@@ -1,6 +1,6 @@
 $(function () {
     //阻止手机端浏览器下拉页面向下移动
-    document.querySelector('body').addEventListener('touchstart', function (ev) {
+    document.querySelector('body').addEventListener('touchmove', function (ev) {
         event.preventDefault();
     });
 
