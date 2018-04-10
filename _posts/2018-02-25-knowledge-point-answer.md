@@ -249,10 +249,10 @@ description:
     4. ES6 箭头函数内的this值继承自外围作用域。
 
 10. **call，apply，bind**
-- 用于指定this的环境，第一个参数即为推送的指向
+- 用于指定this的环境，第一个参数即为this的指向
 - obj.bind(newObj)返回的是函数,按需调用obj.bind(newObj)()的方式
 - obj.call(newObj,arg1,arg2)立即调用，后续参数以列表方式
-- obj.call(newObj,arr)立即调用，后续参数以数组方式
+- obj.apply(newObj,arr)立即调用，后续参数以数组方式
 
 11. **创建对象的常用方式**
 - 构造函数方式 var o=new Object();/var p=new Person('cxh')。缺点是方法无复用，每个对象的方法重新创建，浪费内存 
