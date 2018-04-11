@@ -1,4 +1,5 @@
 $(function () {
+    //阻止冒泡避免浏览器滑动
     document.getElementById("gameBody").addEventListener("touchmove",function(e){
         e.preventDefault();
         e && e.stopPropagation ? e.stopPropagation() : window.event.cancelBubble = true; 
