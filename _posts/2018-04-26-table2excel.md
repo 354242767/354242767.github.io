@@ -18,10 +18,7 @@ description:
     <meta charset="UTF-8">  
     <title>表格导出Excel</title>  
     <script language="JavaScript" type="text/javascript">  
-            
-  
-  
-        //第五种方法  
+        
         var idTmr;  
         function  getExplorer() {  
             var explorer = window.navigator.userAgent ;  
@@ -46,7 +43,7 @@ description:
                 return 'Safari';  
             }  
         }  
-        function method5(tableid) {  
+        function method(tableid) {  
             if(getExplorer()=='ie')  
             {  
                 var curTbl = document.getElementById(tableid);  
@@ -101,7 +98,7 @@ description:
 <body>  
   
 <div >  
-    <button type="button" onclick="method5('tableExcel')">导出Excel方法五</button>  
+    <button type="button" onclick="method('tableExcel')">导出Excel</button>  
 </div>  
 <div id="myDiv">  
 <table id="tableExcel" width="100%" border="1" cellspacing="0" cellpadding="0">  
