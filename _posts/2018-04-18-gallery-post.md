@@ -1,6 +1,6 @@
 ---
 type: photo
-title: Gallery Post
+title: 每日心情
 date: 2018-04-18 15:45:20
 category: images
 tags:
