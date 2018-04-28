@@ -138,7 +138,7 @@ description:
 </body>  
 </html>  
 ```
-[在线演示](https://354242767.github.io/examples/projects/Effects/)
+[在线演示](https://354242767.github.io/examples/projects/Table2Excel/)
 
 如果想要更为丰富的效果可考虑jq的插件或者是`js-xlsx`
 [github：https://github.com/tealeg/xlsx](https://github.com/tealeg/xlsx)
