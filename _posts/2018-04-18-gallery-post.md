@@ -6,7 +6,8 @@ category: images
 tags:
 - 动漫
 - 风景
-- 任务
+- 人物
+- 心情
 description: 动漫美图。
 ---
 
