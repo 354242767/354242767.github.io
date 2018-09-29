@@ -70,8 +70,8 @@ description:
         var canvas = document.createElement("canvas");  
         img.onload = function(){
             var ctx = canvas.getContext('2d'); 
-            canvas.width = image.width;  
-            canvas.height = image.height;  
+            canvas.width = image.width;  // 可做尺寸压缩调整
+            canvas.height = image.height;  //
             ctx.drawImage(image, 0, 0, canvas.width, canvas.height); 
         
         };
