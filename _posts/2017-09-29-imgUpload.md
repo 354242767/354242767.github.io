@@ -99,8 +99,9 @@ description:
 ```
 
 # 图片压缩上传
-1. 思路：file/bolb对象 -> dataurl(base64) ->(尺寸压缩) canvas -> (质量压缩)dataurl(base64) -> file/bolb对象 -> ajax通过FormData对象上传blob/file文件(前端压缩上传/后台压缩不做赘述)
+1. 思路：file/bolb对象 -> dataurl(base64) ->(尺寸压缩) canvas -> (质量压缩)dataurl(base64) -> file/bolb对象 ->     ajax通过FormData对象上传blob/file文件(前端压缩上传/后台压缩不做赘述)
 2. 代码
+
 ``` html
     var canvas = blobToCanvas(bolb);
     var dataurl =  canvas.toDataURL('image/jpeg', 0.8);
