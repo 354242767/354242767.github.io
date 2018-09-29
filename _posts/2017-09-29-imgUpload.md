@@ -37,7 +37,7 @@ description:
 
 ## dataURL转换为File/Blob对象
 ``` html
-    function dataURLtoBlob(dataurl) {
+    function dataURLToBlob(dataurl) {
         var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
             bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
         while(n--){
@@ -46,7 +46,7 @@ description:
         return new Blob([u8arr], {type:mime});
     }
 
-    function dataURLtoFile(dataurl, filename) {
+    function dataURLToFile(dataurl, filename) {
         var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
             bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
         while(n--){
@@ -55,8 +55,8 @@ description:
         return new File([u8arr], filename, {type:mime});
     }
     //test:
-    var blob = dataURLtoBlob('data:text/plain;base64,YWFhYWFhYQ==');
-    var file = dataURLtoFile('data:text/plain;base64,YWFhYWFhYQ==', 'test.png');
+    var blob = dataURLToBlob('data:text/plain;base64,YWFhYWFhYQ==');
+    var file = dataURLToFile('data:text/plain;base64,YWFhYWFhYQ==', 'test.png');
 
  
 ```
@@ -106,7 +106,7 @@ description:
 ``` html
     var canvas = blobToCanvas(bolb);
     var dataurl =  canvas.toDataURL('image/jpeg', 0.8);
-    var file = dataURLtoFile(dataurl, 'test.png');
+    var file = dataURLToFile(dataurl, 'test.png');
 
     //使用ajax发送
     var fd = new FormData();
