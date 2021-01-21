@@ -9,7 +9,7 @@ description:
 - 从基础到进阶的JavaScript问题列表
 ---
 
-### 输出什么？
+### 1.输出什么？
 
 ```javaScript
 function sayHi() {
