@@ -12,7 +12,7 @@ description:
 
 ### 输出什么？
 
-`html
+```javaScript
 function sayHi() {
   console.log(name)
   console.log(age)
@@ -21,3 +21,5 @@ function sayHi() {
 }
 
 sayHi()
+
+```
