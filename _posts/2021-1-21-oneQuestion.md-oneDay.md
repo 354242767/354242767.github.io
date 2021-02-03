@@ -63,6 +63,16 @@ shape.perimeter()
 - C: 20 and 63
 - D: NaN and 63
 
+### 4.输出什么？
+
+```javaScript
++true;
+!"Lydia";
+```
+
+A: 1 and false
+B: false and NaN
+C: false and false
 
 ### 答案
-1.D 2.C 3.B
+1.D 2.C 3.B 4.A
