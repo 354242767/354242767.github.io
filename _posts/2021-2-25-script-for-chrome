@@ -76,6 +76,21 @@ description:
   ]
 }
 ```
+### 抢购脚本步骤
+``` html
+setIntervel(function(){
+  if(Date.now()>new Date('活动时间')){
+    //登陆的用户信息cookie。userInfo等
+    document.getElementById('xxx').click();
+    //验证码取值
+    let vaildateValue=document.getElementById('xxx').innerHtml();
+    //验证码填值 
+    getElementById('xxx').value = vaildateValue;
+    //验证码提交
+    
+  }
+},100);
+```
 
 — 可参考vue-devtools插件
 
