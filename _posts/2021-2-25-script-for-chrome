@@ -7,7 +7,7 @@ categories:
 tags:
 - javaScript
 description: 
-- 怎么样去开发一个简单的chrome浏览器插件
+- 怎么样去开发一个简单的chrome浏览器插件，（抢票抢鞋脚本开发）
 ---
 
 ### chrome浏览器插件的目录结构
@@ -78,6 +78,6 @@ description:
 }
 ```
 
-
+— 可参考vue-devtools插件
 
 
