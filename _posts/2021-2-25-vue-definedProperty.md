@@ -165,7 +165,9 @@ class Watcher{
   }
 }
 ```
-``` javascript (编译)
+### compile.js(编译)
+``` javascript 
+
 // 遍历dom，解析指令和插值表达式
 class Compile{
   // el-编译模板，vm-KVue实列
