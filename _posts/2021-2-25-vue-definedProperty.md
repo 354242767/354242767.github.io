@@ -1,12 +1,12 @@
 ---
-title: 常用的表单验证
+title: vue数据双向绑定实现
 date: 2021-02-26 10:44:22
 categories:
 - 前端
 tags:
 - vue 
 description: 
-- vue 数据双向绑定实现
+- 手写vue数据双向绑定实现
 ---
 
 ### index.html
