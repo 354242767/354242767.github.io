@@ -15,11 +15,7 @@ description:
   在第一次触发事件时，不立即执行函数，而是给出一个期限值
   - 如果在期限值内没有再次触发滚动事件，那么就执行函数
   - 如果在期限值内再次触发滚动事件，那么当前的计时取消，重新开始计时
- ``` javascript
- /*
-* func [function] 需要防抖的函数
-* time [number] 毫秒，防抖期限值
-*/
+``` javascript
 function debounce(func, time) {
   let timer = null;
   return () => {
@@ -35,7 +31,7 @@ function debounce(func, time) {
  #### 概念
  定期开放的函数，也就是让函数执行一次后，在某个时间段内暂时失效，过了这段时间后再重新激活
  
-  ``` javascript
+``` javascript
 function throtte(func, time=1000) {
   let activeTime = 0;
   return () => {
